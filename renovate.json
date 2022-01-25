@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>renovatebot/.github"],
+  "assignees": ["maxbrunet"],
+  "automergeType": "pr",
+  "prCreation": "immediate",
+  "regexManagers": [
+    {
+      "description": "Update Renovate",
+      "fileMatch": [
+        "^\\.pre-commit-(?:config|hooks)\\.yaml$",
+        "^README\\.md$"
+      ],
+      "matchStrings": [
+        "additional_dependencies: \\[renovate@(?<currentValue>.*?)\\]",
+        "rev: (?<currentValue>.*?)\\s"
+      ],
+      "depNameTemplate": "renovate",
+      "datasourceTemplate": "npm"
+    }
+  ]
+}

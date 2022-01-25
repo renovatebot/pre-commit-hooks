@@ -1,0 +1,56 @@
+name: tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
+        with:
+          fetch-depth: 0 # all tags
+
+      - name: Get Renovate version
+        id: get-renovate-version
+        uses: mikefarah/yq@a0ba20866929f62c3fe4f520f34a5f820d27fd37 # renovate: tag=v4.17.2
+        with:
+          cmd: >-
+            yq eval
+            '.[]|select(.id=="renovate-config-validator")|.additional_dependencies[0]|split("@").[1]'
+            .pre-commit-hooks.yaml
+
+      - name: Create tag
+        run: |
+          TAG=${{ steps.get-renovate-version.outputs.result }}
+          if ! git show-ref --tags "${TAG}" --quiet; then
+            git tag "${TAG}" && git push origin "${TAG}"
+          fi
+
+  test:
+    needs: [tag]
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@f38219332975fe8f9c04cca981d674bf22aea1d3 # renovate: tag=v2.3.1
+
+      - name: Run pre-commit
+        uses: pre-commit/action@9b88afc9cd57fd75b655d5c71bd38146d07135fe # renovate: tag=v2.0.3
+        with:
+          extra_args: --all-files
