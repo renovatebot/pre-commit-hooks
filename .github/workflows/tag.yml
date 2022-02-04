@@ -48,7 +48,7 @@ jobs:
           fetch-depth: 2
 
       - name: Set up Python
-        uses: actions/setup-python@f38219332975fe8f9c04cca981d674bf22aea1d3 # renovate: tag=v2.3.1
+        uses: actions/setup-python@7f80679172b057fc5e90d70d197929d454754a5a # renovate: tag=v2.3.2
 
       - name: Run pre-commit
         uses: pre-commit/action@9b88afc9cd57fd75b655d5c71bd38146d07135fe # renovate: tag=v2.0.3
