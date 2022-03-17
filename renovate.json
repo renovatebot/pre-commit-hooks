@@ -3,6 +3,7 @@
   "extends": ["github>renovatebot/.github"],
   "assignees": ["maxbrunet"],
   "automergeType": "pr",
+  "prCreation": "immediate",
   "packageRules": [
     {
       "matchPackageNames": ["renovate"],
