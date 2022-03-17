@@ -1,12 +1,40 @@
-name: tag
+name: build
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3.0.0
+
+      - name: Set up Python
+        uses: actions/setup-python@0ebf233433c08fb9061af664d501c3f3ff0e9e20 # tag=v3.0.0
+        with:
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pre-commit
+        run: >-
+          pre-commit try-repo --all-files
+          --ref="${GITHUB_SHA}"
+          "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
+
   tag:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [test]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -34,23 +62,3 @@ jobs:
           if ! git show-ref --tags "${TAG}" --quiet; then
             git tag "${TAG}" && git push origin "${TAG}"
           fi
-
-  test:
-    needs: [tag]
-    runs-on: ubuntu-latest
-
-    timeout-minutes: 10
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3.0.0
-        with:
-          fetch-depth: 2
-
-      - name: Set up Python
-        uses: actions/setup-python@0ebf233433c08fb9061af664d501c3f3ff0e9e20 # tag=v3.0.0
-
-      - name: Run pre-commit
-        uses: pre-commit/action@9b88afc9cd57fd75b655d5c71bd38146d07135fe # renovate: tag=v2.0.3
-        with:
-          extra_args: --all-files
