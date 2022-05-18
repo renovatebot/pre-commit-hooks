@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>renovatebot/.github"],
-  "assignees": ["maxbrunet"],
+  "assignees": ["maxbrunet", "rarkins", "viceice"],
   "automergeType": "pr",
   "prCreation": "immediate",
   "packageRules": [
