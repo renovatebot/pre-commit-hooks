@@ -32,7 +32,7 @@ jobs:
           --ref="${GITHUB_SHA}"
           "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
 
-  tag:
+  release:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs: [test]
     runs-on: ubuntu-latest
@@ -44,8 +44,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
-        with:
-          fetch-depth: 0 # all tags
 
       - name: Get Renovate version
         id: get-renovate-version
@@ -56,9 +54,17 @@ jobs:
             '.[]|select(.id=="renovate-config-validator")|.additional_dependencies[0]|split("@").[1]'
             .pre-commit-hooks.yaml
 
-      - name: Create tag
+      - name: Create release
         run: |
-          TAG=${{ steps.get-renovate-version.outputs.result }}
-          if ! git show-ref --tags "${TAG}" --quiet; then
-            git tag "${TAG}" && git push origin "${TAG}"
+          if ! gh release view "${TAG}" >/dev/null; then
+            gh release create "${TAG}" \
+              --notes "See https://github.com/renovatebot/renovate/releases/tag/${TAG} for more changes" \
+              --target "${TARGET}" \
+              --title "${TAG}"
+          else
+            echo 'release already exists'
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.get-renovate-version.outputs.result }}
+          TARGET: ${{ github.sha }}
