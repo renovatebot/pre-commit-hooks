@@ -5,3 +5,12 @@
   additional_dependencies: [renovate@32.105.2]
   entry: renovate-config-validator
   files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
+- id: renovate-config-validator-iter
+  name: renovate-config-validator
+  description: Validate Renovate config
+  language: node
+  additional_dependencies: [renovate@32.105.2]
+  entry: bash -c 'for f in ${@:0}; do renovate-config-validator $f; done'
+  files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
+  require_serial: true
+  pass_filenames: true

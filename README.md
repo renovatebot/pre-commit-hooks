@@ -13,3 +13,18 @@ repos:
     hooks:
       - id: renovate-config-validator
 ```
+
+You can also use `renovate-config-validator-iter` in a project with multiple configurations by listing the configurations in the [files](https://pre-commit.com/#hooks-files) field
+
+```yaml
+repos:
+  - repo: github.com/renovatebot/pre-commit-hooks
+    rev: 32.105.2
+    hooks:
+      - id: renovate-config-validator
+        files: |
+          (?x)^(
+            (^|.*/).?renovate(?:rc)?(?:\.json5?)?$|
+            ^default\.json
+          )
+```
