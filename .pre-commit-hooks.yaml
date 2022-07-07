@@ -2,7 +2,7 @@
   name: renovate-config-validator
   description: Validate Renovate config
   language: node
-  additional_dependencies: [renovate@32.105.2]
+  additional_dependencies: [renovate@32.105.4]
   entry: renovate-config-validator
   files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
 - id: renovate-config-validator-iter
