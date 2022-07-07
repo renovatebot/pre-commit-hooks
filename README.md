@@ -21,7 +21,7 @@ repos:
   - repo: github.com/renovatebot/pre-commit-hooks
     rev: 32.105.2
     hooks:
-      - id: renovate-config-validator
+      - id: renovate-config-validator-iter
         files: |
           (?x)^(
             (^|.*/).?renovate(?:rc)?(?:\.json5?)?$|
