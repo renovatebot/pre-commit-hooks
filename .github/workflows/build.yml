@@ -48,7 +48,7 @@ jobs:
 
       - name: Get Renovate version
         id: get-renovate-version
-        uses: mikefarah/yq@1c7dc0e88aad311c89889bc5ce5d8f96931a1bd0 # tag=v4.27.2
+        uses: mikefarah/yq@3d11b0545dbc0712c2045dc9e8b6c95b298e824e # tag=v4.27.3
         with:
           cmd: >-
             yq eval
