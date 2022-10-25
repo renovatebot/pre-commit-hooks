@@ -1,5 +1,5 @@
 repos:
   - repo: https://github.com/maxbrunet/pre-commit-renovate
-    rev: 33.2.2
+    rev: 33.2.4
     hooks:
       - id: renovate-config-validator
