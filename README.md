@@ -9,7 +9,7 @@ Even though it is a Node-based hook, it works [without any system-level dependen
 ```yaml
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 34.112.2
+    rev: 34.116.1
     hooks:
       - id: renovate-config-validator
 ```
