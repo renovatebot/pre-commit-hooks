@@ -19,7 +19,7 @@
       "separateMinorPatch": false
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "customType": "regex",
       "description": "Update Renovate",
