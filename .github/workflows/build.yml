@@ -48,7 +48,7 @@ jobs:
 
       - name: Get Renovate version
         id: get-renovate-version
-        uses: mikefarah/yq@1c3d55106075bd37df197b4bc03cb4a413fdb903 # v4.40.4
+        uses: mikefarah/yq@dd648994340a5d03225d97abf19c9bf1086c3f07 # v4.40.5
         with:
           cmd: >-
             yq eval
