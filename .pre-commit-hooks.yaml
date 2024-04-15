@@ -4,4 +4,4 @@
   language: node
   additional_dependencies: [renovate@37.286.0]
   entry: renovate-config-validator
-  files: '((^|/).?renovate(?:rc)?(?:\.json5?)?$|^config.js$)'
+  files: '((^|/).?renovate(?:rc)?(?:\.json5?)?|^config.js)$'
