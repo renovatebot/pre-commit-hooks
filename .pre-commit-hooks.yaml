@@ -5,3 +5,11 @@
   additional_dependencies: [renovate@38.25.0]
   entry: renovate-config-validator
   files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
+- id: renovate-config-validator-strict
+  name: renovate-config-validator
+  description: Validate Renovate config
+  language: node
+  additional_dependencies: [renovate@38.23.2]
+  entry: renovate-config-validator
+  args: [--strict]
+  files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
