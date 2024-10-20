@@ -12,4 +12,6 @@ repos:
     rev: 38.128.6
     hooks:
       - id: renovate-config-validator
+      # or for strict validation
+      #- id: renovate-config-validator-strict
 ```
