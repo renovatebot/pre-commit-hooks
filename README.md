@@ -11,7 +11,7 @@ For general usage:
 ```yaml
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 38.128.6
+    rev: 39.49.3
     hooks:
       - id: renovate-config-validator
 ```
