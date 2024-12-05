@@ -1,8 +1,6 @@
 # Renovate pre-commit hooks
 
-A [pre-commit](https://pre-commit.com/) hook
-to run [`renovate-config-validator`](https://docs.renovatebot.com/config-validation/#config-validation)
-when you [reconfigure Renovate via PR](https://docs.renovatebot.com/getting-started/installing-onboarding/#reconfigure-via-pr).
+A [pre-commit](https://pre-commit.com/) hook to run [`renovate-config-validator`](https://docs.renovatebot.com/config-validation/#config-validation) when you [reconfigure Renovate via PR](https://docs.renovatebot.com/getting-started/installing-onboarding/#reconfigure-via-pr).
 
 Even though it is a Node-based hook, it works [without any system-level dependencies](https://pre-commit.com/#node).
 
