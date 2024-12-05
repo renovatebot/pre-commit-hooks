@@ -22,7 +22,7 @@ opt into [strict mode](https://docs.renovatebot.com/config-validation/#strict-mo
 ```yaml
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 38.128.6
+    rev: 38.142.7
     hooks:
       - id: renovate-config-validator
         args: [--strict]
