@@ -23,9 +23,9 @@
     {
       "customType": "regex",
       "description": "Update Renovate",
-      "fileMatch": [
-        "^\\.pre-commit-(?:config|hooks)\\.yaml$",
-        "^README\\.md$"
+      "managerFilePatterns": [
+        "/^\\.pre-commit-(?:config|hooks)\\.yaml$/",
+        "/^README\\.md$/"
       ],
       "matchStrings": [
         "additional_dependencies: \\[renovate@(?<currentValue>.*?)\\]",
