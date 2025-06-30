@@ -1,6 +1,7 @@
 - id: renovate-config-validator
   name: renovate-config-validator
   description: Validate Renovate config
+  minimum_pre_commit_version: 3.6.0
   language: node
   language_version: lts
   additional_dependencies: [renovate@41.17.2]
