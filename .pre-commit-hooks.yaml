@@ -3,6 +3,6 @@
   description: Validate Renovate config
   language: node
   language_version: lts
-  additional_dependencies: [renovate@41.23.1]
+  additional_dependencies: [renovate@41.23.2]
   entry: renovate-config-validator
   files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
