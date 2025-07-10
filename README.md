@@ -27,3 +27,19 @@ repos:
       - id: renovate-config-validator
         args: [--strict]
 ```
+
+If you run into Heap Size issues try to set ENV `NODE_OPTIONS` with value `"--max-old-space-size=4096"`.
+
+## Override hook configuration
+
+You can override the configuration in [pre-commit-hooks.yaml](.pre-commit-hooks.yaml), for instance to scan for all `.json5` files
+
+```yaml
+repos:
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 40.36.8
+    hooks:
+      - id: renovate-config-validator
+        args: [--strict]
+        files: '.*\.json5$'
+```
