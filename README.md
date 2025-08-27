@@ -11,7 +11,7 @@ For general usage:
 ```yaml
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 41.87.1
+    rev: 41.87.2
     hooks:
       - id: renovate-config-validator
 ```
@@ -22,7 +22,7 @@ opt into [strict mode](https://docs.renovatebot.com/config-validation/#strict-mo
 ```yaml
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 41.87.1
+    rev: 41.87.2
     hooks:
       - id: renovate-config-validator
         args: [--strict]
