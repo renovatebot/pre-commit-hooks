@@ -41,5 +41,5 @@ repos:
     hooks:
       - id: renovate-config-validator
         args: [--strict]
-        files: '.*\.json5$'
+        files: '.*\\.json5$'
 ```
