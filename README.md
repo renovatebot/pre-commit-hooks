@@ -37,7 +37,7 @@ You can override the configuration in [pre-commit-hooks.yaml](.pre-commit-hooks.
 ```yaml
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 40.36.8
+    rev: 40.62.1
     hooks:
       - id: renovate-config-validator
         args: [--strict]
