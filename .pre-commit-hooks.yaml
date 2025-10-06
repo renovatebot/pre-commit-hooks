@@ -4,6 +4,6 @@
   minimum_pre_commit_version: 3.6.0
   language: node
   language_version: lts
-  additional_dependencies: [renovate@41.137.0]
+  additional_dependencies: [renovate@41.137.1]
   entry: renovate-config-validator
   files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
