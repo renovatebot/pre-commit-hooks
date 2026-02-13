@@ -1,5 +1,5 @@
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 43.12.1
+    rev: 43.14.0
     hooks:
       - id: renovate-config-validator
