@@ -6,4 +6,4 @@
   language_version: lts
   additional_dependencies: [renovate@44.105.0]
   entry: renovate-config-validator
-  files: '(^|/).?renovate(?:rc)?(?:\.json5?)?$'
+  files: '(^|/).?renovate(?:rc)?(?:\.json[c5]?)?$'
